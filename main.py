@@ -35,18 +35,18 @@ pantalla = pygame.display.set_mode((800, 600))
 
 # Titulo, Icono y fondo de pantalla
 pygame.display.set_caption('Invasión Espacial')
-icono = pygame.image.load('ovni.png')
+icono = pygame.image.load('media/img/ovni.png')
 pygame.display.set_icon(icono)
-fondo = pygame.image.load('ai_space2.png')
+fondo = pygame.image.load('media/img/ai_space2.png')
 
 # Agregar música
-mixer.music.load('Away - Patrick Patrikios.mp3')
+mixer.music.load('media/music/Away - Patrick Patrikios.mp3')
 mixer.music.set_volume(0.3)
 mixer.music.play(-1)    # -1 hace que se repita
 
 
 # Variables del Jugador
-img_jugador = pygame.image.load('astronave.png')
+img_jugador = pygame.image.load('media/img/astronave.png')
 jugador_x = (800 - 64) / 2 
 jugador_y = 585 - 64
 jugador_x_cambio = 0
@@ -60,7 +60,7 @@ enemigo_y_cambio = []
 cantidad_enemigos = 8
 
 for e in range(cantidad_enemigos):
-    img_enemigo.append(pygame.image.load('enemigo.png'))
+    img_enemigo.append(pygame.image.load('media/img/enemigo.png'))
     enemigo_x.append(random.randint(0, 736))
     enemigo_y.append(random.randint(50, 200))
     enemigo_x_cambio.append(1)
@@ -68,7 +68,7 @@ for e in range(cantidad_enemigos):
 
 # Variables de la bala
 balas = []
-img_bala = pygame.image.load('bala.png')
+img_bala = pygame.image.load('media/img/bala.png')
 bala_x = 0
 bala_y = 585 - 64
 bala_y_cambio = 2.5
@@ -76,12 +76,12 @@ bala_visible = False
 
 # Variable puntaje
 puntaje = 0
-fuente = pygame.font.Font('nasalization-rg.otf', 32)
+fuente = pygame.font.Font('media/font/nasalization-rg.otf', 32)
 texto_x = 10
 texto_y = 10
 
 # Texto fin del juego
-fuente_final = pygame.font.Font('nasalization-rg.otf', 44)
+fuente_final = pygame.font.Font('media/font/nasalization-rg.otf', 44)
 
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -150,7 +150,7 @@ while se_ejecuta:
             if evento.key == pygame.K_RIGHT:
                 jugador_x_cambio = 2
             if evento.key == pygame.K_SPACE:
-                sonido_bala = mixer.Sound('Laser gun.mp3')
+                sonido_bala = mixer.Sound('media/music/Laser gun.mp3')
                 sonido_bala.set_volume(0.6)
                 sonido_bala.play()
                 nueva_bala = {
@@ -200,7 +200,7 @@ while se_ejecuta:
         for bala in balas:
             colision_bala_enemigo = hay_colision(enemigo_x[e], enemigo_y[e], bala['x'], bala['y'])
             if colision_bala_enemigo:
-                sonido_colision = mixer.Sound('Explosion.mp3')
+                sonido_colision = mixer.Sound('media/music/Explosion.mp3')
                 sonido_colision.play()
                 balas.remove(bala)
                 puntaje += 1
