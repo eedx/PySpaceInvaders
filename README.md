@@ -1,6 +1,6 @@
 # PySpaceInvaders
 
-A small version of Space Invaders using PyGame
+A small version of Space Invaders using PyGame, all the code is on the main.py file
 
 
 ## Resources
